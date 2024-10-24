@@ -81,6 +81,7 @@ body {
   padding: 10px; /* Optional padding to prevent the button from sticking to the edges */
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
+  cursor: pointer;
 }
 
 
