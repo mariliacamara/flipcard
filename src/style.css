@@ -1,0 +1,144 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.card-container {
+  perspective: 1000px;
+}
+
+.card {
+  width: 250px;
+  height: 440px;
+  position: relative; /* Make sure the card itself is relatively positioned */
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+  transform-origin: center; /* Make sure the rotation happens around the center */
+}
+
+.card-front,
+.card-back {
+  position: absolute; /* Both sides are absolutely positioned inside the card */
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-front {
+  background-color: #fff;
+}
+
+.card-front img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+}
+
+.card-front img {
+  /* Set width to 250px */
+  /* Set height to 320px */
+  object-fit: cover; /* Ensure the image covers the area without distortion */
+}
+
+.card-front .info {
+  padding: 20px 20px 40px;
+}
+
+.card-front h3 {
+  font-family: 'Barlow', serif;
+  font-size: 17px;
+  margin-bottom: 5px;
+}
+
+.card-front p {
+  font-family: 'Lora', serif;
+  color: #777;
+}
+
+/* Overlay to show on hover */
+.overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(89, 127, 113, 0.8); /* green with opacity */
+  display: flex;
+  justify-content: flex-end; /* Aligns content to the right */
+  align-items: flex-start;   /* Aligns content to the top */
+  padding: 10px; /* Optional padding to prevent the button from sticking to the edges */
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+
+.card-front:hover .overlay {
+  opacity: 1;
+}
+
+.learn-more {
+  width: 130px;
+  border: none;
+  background: none; /* Remove background */
+  color: #fff; /* Keep the text white to be visible on the green overlay */
+  font-size: 14px;
+  font-family: 'Lora', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.learn-more span {
+  font-size: 50px;
+  color: #fff; /* Set icon color to white */
+}
+
+.card-back {
+  background-color: white;
+  color: #444;
+  transform: rotateY(180deg);
+  padding: 20px;
+  font-family: 'Lora', sans-serif;
+  text-align: center;
+  position: relative; /* For the X button */
+}
+
+/* Style the close (X) button */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #777;
+  
+}
+
+.card-back h3 {
+  font-family: 'Barlow', sans-serif;
+  margin-bottom: 10px;
+}
+
+.card-back p {
+  margin-bottom: 10px;
+  color: #444;
+}
+
+.card.flip {
+  transform: rotateY(180deg);
+}
